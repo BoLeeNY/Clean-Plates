@@ -1,8 +1,7 @@
 class Restaurant < ApplicationRecord
-    has_many :violations
+    has_many :violations, foreign_key: "camis"
 
-    def get_restaurants
-        response = HTTParty.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json')
-        puts response.body
-    end
+
 end
+
+
