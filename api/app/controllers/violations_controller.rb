@@ -1,12 +1,12 @@
 class ViolationsController < ApplicationController
 
     def index
-        camis = params[:id]
+        camis = params[:restaurant_id]
         if (camis)
-        @violations = Restaurant.where({camis: camis}).violations
+        @violations = Restaurant.find_by({camis: camis}).violations
         else
         @violations = Violation.all
         end
-        render json: { violations: @violations }, include: :restaurants
+        render json: { violations: @violations }, include: :restaurant
     end
 end
