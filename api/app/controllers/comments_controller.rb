@@ -38,6 +38,12 @@ class CommentsController < ApplicationController
         end
     end
 
+    def destroy
+        @comment = Comment.find(params[:id])
+        @comment.destroy
+        render json: { message: "Deleted Comment #{params[:id]}"}
+    end
+
     private
 
     def comment_params
