@@ -9,6 +9,8 @@
 
 response = HTTParty.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json')
 
+Restaurant.delete_all
+Violation.delete_all
 
 response.each do |resp|
 
@@ -32,3 +34,5 @@ response.each do |resp|
     })
 end
     
+Comment.create!({name: 'Blerf', comment: 'I love this place, but I am never going back now!', restaurant_id: 41216675})
+Comment.create!({name: 'Shuckle', comment: 'This is gross!', restaurant_id: 41216675})

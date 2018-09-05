@@ -15,3 +15,4 @@ export function fetchOneRestaurant(id) {
         throw Error(e)
     })
   }
+
