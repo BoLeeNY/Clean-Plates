@@ -29,6 +29,15 @@ class CommentsController < ApplicationController
         end
     end
 
+    def update
+        @comment = Comment.find(params[:id])
+        if @comment.update(comment_params)
+        render json: { comment: @comment }
+        else
+            render json: { message: "Oops", errors: @comment.error }
+        end
+    end
+
     private
 
     def comment_params
