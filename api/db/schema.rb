@@ -31,11 +31,9 @@ ActiveRecord::Schema.define(version: 2018_09_04_150849) do
     t.string "grade"
     t.string "inspection_date"
     t.text "description"
-    t.bigint "restaurant_id"
+    t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_violations_on_restaurant_id"
   end
 
-  add_foreign_key "violations", "restaurants"
 end

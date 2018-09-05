@@ -4,7 +4,7 @@ class CreateViolations < ActiveRecord::Migration[5.2]
       t.string :grade
       t.string :inspection_date
       t.text :description
-      t.references :restaurant, foreign_key: true
+      t.integer :restaurant_id
 
       t.timestamps
     end
