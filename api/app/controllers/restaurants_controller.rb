@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
         else
             @restaurants = Restaurant.all
         end
-        render json: { restaurants: @restaurants }, include: :violations
+        render json: { restaurants: @restaurants }, include: [:violations, :comments]
     end
 
     def show

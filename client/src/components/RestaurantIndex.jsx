@@ -17,6 +17,7 @@ function RestaurantIndex(props) {
                 </div>
             ))}
             </div>
+            
         </div>
     )
 }
