@@ -6,7 +6,8 @@ import './App.css';
 import {
   fetchRestaurants,
   fetchOneRestaurant,
-  fetchComments
+  fetchComments,
+  searchRestaurants
 } from './services/api';
 
 class App extends Component {

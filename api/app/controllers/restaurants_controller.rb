@@ -1,9 +1,9 @@
 class RestaurantsController < ApplicationController
     
     def index
-        name = params[:name].upcase
+        name = params[:name]
         if (name)
-            @restaurants = Restaurant.find_by({name: name})
+            @restaurants = Restaurant.find_by({name: name.upcase})
         else
             @restaurants = Restaurant.all
         end

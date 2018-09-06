@@ -1,11 +1,57 @@
 .App {
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
+.header {
+  
+}
 
+h1 {
+  font-family: 'Emilys Candy';
+  font-size: 75px;
+  cursor: default;
+}
 
 h2 {
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
   align-self: auto;
 }
 
+.Index {
+  
+  padding: 9px;
+  text-align: center;
+  cursor: pointer;
+  background-color: aliceblue;
+  font-family: 'brawler';
+  
+}
 
+
+.searchbar {
+  margin: 2px;
+  width: 500px;
+  height: 24px;
+  font-family: 'brawler';
+  font-size: 16px;
+}
+.submit {
+  height: 29px;
+  font-family: 'brawler';
+  font-size: 15px;
+}

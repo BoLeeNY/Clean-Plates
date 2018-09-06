@@ -25,14 +25,17 @@ class Header extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSumbmit}>
-                <label>Search</label>
-                <input type="text"
+            <div className="header">
+                <h1>Clean Plate's</h1>
+                <div className="search">
+                <form onSubmit={this.handleSumbmit} method="GET" action="search">
+                <input type="text" className="searchbar"
                     name="name" 
-                    value={this.handleChange} />
-                <input type="submit" value="search"/>
+                    placeholder="Find a Restaurant"
+                    onChange={this.handleChange} />
+                <input className="submit" type="submit" value="search"/>
                 </form>
+                </div>
             </div>
         )
     }

@@ -3,8 +3,8 @@ import React from 'react'
 function RestaurantIndex(props) {
     return (
         <div>
-            
-            <div>
+
+            <div className="container">
             {props.restaurants.map(restaurant => (
                 <div key={restaurant.id} className="Index"
                         onClick={(ev) => {
