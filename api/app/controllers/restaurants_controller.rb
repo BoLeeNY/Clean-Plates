@@ -12,6 +12,6 @@ class RestaurantsController < ApplicationController
 
     def show
         id = params[:id]
-        render json: { restaurants: Restaurant.where({camis: id})}, include: :violations, include: :comments
+        render json: { restaurants: Restaurant.where({camis: id})}, include: [:violations, :comments]
     end
 end
