@@ -16,3 +16,19 @@ export function fetchOneRestaurant(id) {
     })
   }
 
+export function fetchComments(id) {
+    return fetch(`${BASE_URL}/restaurants/${id}/comments`)
+    .then(resp => resp.json())
+    .catch((e) => {
+        throw Error(e)
+  })
+}
+
+export function searchRestaurants(name) {
+  return fetch(`${BASE_URL}/restaurants/${name}`)
+    .then(resp => resp.json())
+    .catch(err => {
+      throw Error(err);
+    });
+}
+

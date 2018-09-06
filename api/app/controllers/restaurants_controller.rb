@@ -1,7 +1,13 @@
 class RestaurantsController < ApplicationController
     
     def index
-        render json: { restaurants: Restaurant.all }, include: :violations, include: :comments
+        name = params[:name].upcase
+        if (name)
+            @restaurants = Restaurant.find_by({name: name})
+        else
+            @restaurants = Restaurant.all
+        end
+        render json: { restaurants: @restaurants }, include: :violations
     end
 
     def show

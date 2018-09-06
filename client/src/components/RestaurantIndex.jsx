@@ -3,8 +3,10 @@ import React from 'react'
 function RestaurantIndex(props) {
     return (
         <div>
+            
+            <div>
             {props.restaurants.map(restaurant => (
-                <div key={restaurant.id}
+                <div key={restaurant.id} className="Index"
                         onClick={(ev) => {
                         ev.preventDefault();
                         props.select(restaurant)
@@ -14,6 +16,7 @@ function RestaurantIndex(props) {
                     <p>Cuisine: {restaurant.cuisine}</p>
                 </div>
             ))}
+            </div>
         </div>
     )
 }
