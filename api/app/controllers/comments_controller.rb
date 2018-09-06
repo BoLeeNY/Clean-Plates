@@ -47,8 +47,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:data)
-            .require(:attributes)
+        params
             .permit(:name, :comment, :restaurant_id)
     end
 end
