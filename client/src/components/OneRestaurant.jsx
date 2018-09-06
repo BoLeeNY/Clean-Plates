@@ -10,9 +10,15 @@ function OneRestaurant(props) {
         result = <div>
             {props.rest.comments.map(comment => (
                 <div key={comment.id}>
-                <h2>Comment:</h2>
-                <p>Name: {comment.name}</p>
-                <p>Comment: {comment.comment}</p>
+                    <h2>Comment:</h2>
+                    <p>Name: {comment.name}</p>
+                    <p>Comment: {comment.comment}</p>
+                    <button onClick={(ev) => {
+                        ev.preventDefault();
+                        props.delete(comment)
+                    }}>
+                        Delete Comment
+                    </button>
                 </div>
             ))}
         </div>
@@ -20,7 +26,6 @@ function OneRestaurant(props) {
     
     return (
         <div>
-
             <h2>{props.rest.name}</h2>
 
             <div>
@@ -35,7 +40,11 @@ function OneRestaurant(props) {
             </div>
 
             <div>
+
+                <div>
                 {result}
+                </div>
+
             </div>
 
         </div>

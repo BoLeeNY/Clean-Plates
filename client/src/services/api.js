@@ -32,3 +32,13 @@ export function searchRestaurants(name) {
     });
 }
 
+export function deleteComment(comment) {
+  const opts = {
+      method: 'Delete',
+  }
+  return fetch(`${BASE_URL}/restaurants/${comment.restaurant_id}/comments/${comment.id}`, opts)
+  .catch ((e) => {
+      throw Error(e);
+  });
+}
+

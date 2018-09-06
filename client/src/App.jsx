@@ -7,7 +7,8 @@ import {
   fetchRestaurants,
   fetchOneRestaurant,
   fetchComments,
-  searchRestaurants
+  searchRestaurants,
+  deleteComment
 } from './services/api';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
     this.fetchOne = this.fetchOne.bind(this);
     this.selectRestaurant = this.selectRestaurant.bind(this);
     this.search = this.search.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +50,18 @@ class App extends Component {
     })
   };
 
+  handleDelete(comment) {
+    debugger
+    deleteComment(comment)
+      .then(data => fetchOneRestaurant(comment.restaurant_id))
+      .then(data => {
+        this.setState({
+          currentView: 'One Restaurant',
+          restaurants: data.restaurants,
+        });
+      })
+  }
+
 
 
   determinRender() {
@@ -55,7 +69,7 @@ class App extends Component {
       case 'All Restaurants':
       return <RestaurantIndex restaurants={this.state.restaurants} select={this.selectRestaurant}/>
       case 'One Restaurant':
-      return <OneRestaurant rest={this.state.selectedRest} />
+      return <OneRestaurant rest={this.state.selectedRest} delete={this.handleDelete} />
     }
   };
   render() {
