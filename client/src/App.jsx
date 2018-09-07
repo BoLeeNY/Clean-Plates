@@ -24,6 +24,7 @@ class App extends Component {
       name: '',
       comment: '',
       restaurant_id: '',
+      com_id: '',
       modal: false
     }
     this.fetchOne = this.fetchOne.bind(this);
@@ -32,7 +33,7 @@ class App extends Component {
     this.updateComment = this.updateComment.bind(this);
     this.createComment = this.createComment.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
-    this.handleState - this.handleState.bind(this);
+    this.handleState = this.handleState.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -52,6 +53,7 @@ class App extends Component {
       name: comment.name,
       comment: comment.comment,
       restaurant_id: comment.restaurant_id,
+      com_id:comment.id,
       modal: !(this.state.modal)
     })
   }
@@ -91,7 +93,7 @@ class App extends Component {
   };
 
   updateComment(comment) {
-    // comment = {name: this.state.name, comment: this.state.comment, restaurant_id: this.state.restaurant_id}
+    comment = {name: this.state.name, comment: this.state.comment, restaurant_id: this.state.restaurant_id, id: this.state.com_id}
     updateComment(comment)
       .then(data => fetchOneRestaurant(data.id))
       .then(data => {
