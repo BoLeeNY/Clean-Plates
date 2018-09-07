@@ -3,8 +3,8 @@ import React from 'react'
 function Header(props) {
 
     return (
-        <div className="header">
-            <h1>Clean Plates</h1>
+        <div>
+            <h1 className="header" onClick={props.home}>Clean Plates</h1>
             
         </div>
     )

@@ -4,9 +4,13 @@ import React from 'react'
 function RestaurantIndex(props) {
     let resta;
     if (props.input) {
-        debugger
-        resta = props.restaurants.name.filter(rest => {
-            return rest.name.toLowerCase().includes(props.input.toLowerCase())
+        
+        resta = props.restaurants.filter(rest => {
+           if (rest.name) {
+               return rest.name.toLowerCase().includes(props.input.toLowerCase())
+           }else{
+               return "Not found"
+           }
         })
     } else {
         resta = props.restaurants

@@ -8,9 +8,9 @@ function OneRestaurant(props) {
     if (!props.rest.comments){
         result = <div></div>
     }else{
-        result = <div>
+        result = <div className="comm-container">
             {props.rest.comments.map(comment => (
-                <div key={comment.id}>
+                <div key={comment.id} className="comment">
                     <h2>Comment:</h2>
                     <p>Name: {comment.name}</p>
                     <p>Comment: {comment.comment}</p>
@@ -39,13 +39,13 @@ function OneRestaurant(props) {
         <div>
             <h2>{props.rest.name}</h2>
 
-            <div>
+            <div className="place">
                 <p>Address: {props.rest.building} {props.rest.street}, {props.rest.borough}, {props.rest.zip}</p>
                 <p>Cuisine: {props.rest.cuisine}</p>
             </div>
 
-            <div>
                 <h2>Grade: {props.rest.violations[0].grade}</h2>
+            <div className="data">
                 <p>Inspection Date: {props.rest.violations[0].inspection_date}</p>
                 <p>Violations: {props.rest.violations[0].description}</p>
             </div>

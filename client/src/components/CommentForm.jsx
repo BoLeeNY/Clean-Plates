@@ -48,7 +48,7 @@ class CommentForm extends Component {
                     </div>
                     <button className="modal-close is-large" onClick={this.props.toggle} aria-label="close"></button>
                 </div>
-                    <button onClick={this.props.toggle} className="button" id="showModal">Create</button>
+                    <button onClick={this.props.toggle} className="button" id="showModal">Comment</button>
             </div>
         )
     }

@@ -4,9 +4,7 @@
   margin: 0;
 }
 
-.header {
-  
-}
+
 
 h1 {
   font-family: 'Emilys Candy';
@@ -26,6 +24,7 @@ p {
   margin: 0;
 }
 
+/* Index styles */
 .container {
   display: grid;
   grid-template-columns: auto auto;
@@ -42,7 +41,27 @@ p {
   
 }
 
+/* Show One Styles */
+.comm-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-self: auto;
+  background-color: aliceblue;
+}
+.comment {
+  padding: 9px;
+  text-align: center;
+  font-family: 'brawler';
+}
+.place, .data {
+  text-align: center;
+  font-family: 'brawler';
+}
 
+/* Header Styles */
+.header {
+  cursor: pointer;
+}
 .searchbar {
   margin: 2px;
   width: 500px;

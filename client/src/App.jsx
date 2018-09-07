@@ -35,6 +35,7 @@ class App extends Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.handleState = this.handleState.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.homepage = this.homepage.bind(this);
   }
 
   componentDidMount() {
@@ -58,6 +59,12 @@ class App extends Component {
     })
   }
 
+  homepage() {
+    this.setState({
+      currentView: 'All Restaurants'
+    })
+  }
+
   handleChange(ev) {
     ev.preventDefault();
     const { name, value } = ev.target;
@@ -65,6 +72,7 @@ class App extends Component {
         [name]: value,
     });
 };
+
 
   fetchOne(id) {
     fetchOneRestaurant(id)
@@ -143,7 +151,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Header search={this.search}/>
+      <Header search={this.search} home={this.homepage}/>
       {this.determinRender()}
       </div>
     );
