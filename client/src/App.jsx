@@ -23,16 +23,17 @@ class App extends Component {
       input: '',
       name: '',
       comment: '',
+      restaurant_id: '',
       modal: false
     }
     this.fetchOne = this.fetchOne.bind(this);
     this.selectRestaurant = this.selectRestaurant.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.updateComment = this.updateComment.bind(this);
     this.createComment = this.createComment.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleState - this.handleState.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -46,10 +47,14 @@ class App extends Component {
     })
   }
 
-  handleSubmit(ev) {
-    ev.preventDefault();
-    this.createComment(this.state.text)
-};
+  handleState(comment) {
+    this.setState({
+      name: comment.name,
+      comment: comment.comment,
+      restaurant_id: comment.restaurant_id,
+      modal: !(this.state.modal)
+    })
+  }
 
   handleChange(ev) {
     ev.preventDefault();
@@ -74,9 +79,8 @@ class App extends Component {
     })
   };
 
-  createComment() {
-    let text = {name: this.state.name, comment: this.state.comment, restaurant_id: this.state.selectedRest.camis}
-    saveNewComment(text)
+  createComment(comment) {
+    saveNewComment(comment)
     .then(data => fetchOneRestaurant(this.state.selectedRest.camis))
       .then(data => {
         this.setState({
@@ -87,6 +91,7 @@ class App extends Component {
   };
 
   updateComment(comment) {
+    // comment = {name: this.state.name, comment: this.state.comment, restaurant_id: this.state.restaurant_id}
     updateComment(comment)
       .then(data => fetchOneRestaurant(data.id))
       .then(data => {
@@ -122,10 +127,15 @@ class App extends Component {
       return <OneRestaurant 
         rest={this.state.selectedRest} 
         delete={this.handleDelete}
-        create={this.handleSubmit}
-        change={this.handleChange}
+        create={this.createComment}
         toggle={this.toggleModal}
-        modal={this.state.modal} />
+        modal={this.state.modal}
+        update={this.updateComment}
+        state={this.handleState}
+        change={this.handleChange}
+        name={this.state.name}
+        comment={this.state.comment}
+        id={this.state.restaurant_id} />
     }
   };
   render() {

@@ -7,7 +7,7 @@ function UpdateComment(props) {
             <div className={props.modal ? "modal is-active" : "modal"}>
                         <div className="modal-background"></div>
                         <div className="modal-content">
-                            <form onSubmit={props.create}>
+                            <form onSubmit={props.update}>
                                 <input type="text"
                                     name="name"
                                     value={props.name}
@@ -20,9 +20,9 @@ function UpdateComment(props) {
                                 <input type="submit" value="Comment" />
                             </form>
                         </div>
-                        <button className="modal-close is-large" aria-label="close"></button>
+                        <button className="modal-close is-large" onClick={props.toggle} aria-label="close"></button>
                     </div>
-                    <button onClick={props.toggle} className="button" id="showModal">Show</button>
+                    <button onClick={()=>props.state(props.rest)} className="button" id="showModal">Update</button>
         </div>
     )
 }

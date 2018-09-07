@@ -20,6 +20,16 @@ function OneRestaurant(props) {
                     }}>
                         Delete Comment
                     </button>
+                    <UpdateComment 
+                    toggle={props.toggle} 
+                    modal={props.modal} 
+                    rest={comment}
+                    update={props.update}
+                    state={props.state}
+                    change={props.change}
+                    name={props.name}
+                    comment={props.comment}
+                    id={props.id} />
                 </div>
             ))}
         </div>
@@ -41,8 +51,14 @@ function OneRestaurant(props) {
             </div>
 
             <div>
-                <CommentForm toggle={props.toggle} modal={props.modal} />
-                {/* <UpdateComment toggle={props.toggle} modal={props.modal} rest={props.rest} /> */}
+                <div>
+                <CommentForm 
+                    toggle={props.toggle} 
+                    modal={props.modal} 
+                    create={props.create}
+                    rest={props.rest} />
+                </div>
+
                 <div>
                 {result}
                 </div>
