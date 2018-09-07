@@ -1,5 +1,6 @@
 import React from 'react'
-
+import CommentForm from './CommentForm'
+import UpdateComment from './UpdateComment';
 
 
 function OneRestaurant(props) {
@@ -40,26 +41,8 @@ function OneRestaurant(props) {
             </div>
 
             <div>
-                <div className="modal" is-active>
-                    <div class="modal-background"></div>
-                    <div class="modal-content">
-                        <form onSubmit={props.create}>
-                            <input type="text"
-                                name="name"
-                                value={props.name}
-                                placeholder="Name"
-                                onChange={props.change} />
-                            <textarea name="comment"
-                                id="" cols="30" rows="10"
-                                value={props.comment}
-                                onChange={props.change}></textarea>
-                            <input type="submit" value="Comment" />
-                        </form>
-                    </div>
-                    <button class="modal-close is-large" aria-label="close"></button>
-                </div>
-                <button class="button" id="showModal">Show</button>
-                
+                <CommentForm toggle={props.toggle} modal={props.modal} />
+                {/* <UpdateComment toggle={props.toggle} modal={props.modal} rest={props.rest} /> */}
                 <div>
                 {result}
                 </div>

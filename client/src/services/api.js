@@ -39,6 +39,18 @@ export function saveNewComment(comment) {
       });
 }
 
+export function updateComment(comment) {
+  const opts = {
+      method: 'PUT',
+      body: JSON.stringify(comment),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+  return fetch(`${BASE_URL}/restaurants/${comment.restaurant_id}/comments/${comment.id}`, opts)
+  .then(resp => resp.json());
+}
+
 export function deleteComment(comment) {
   const opts = {
       method: 'Delete',
