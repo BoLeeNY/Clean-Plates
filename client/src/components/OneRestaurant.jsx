@@ -4,7 +4,9 @@ import UpdateComment from './UpdateComment';
 
 
 function OneRestaurant(props) {
+    // This loops over and displays all the comments a restaurant has
     let result;
+    // If there are no comments, display an empty div
     if (!props.rest.comments){
         result = <div></div>
     }else{
@@ -17,25 +19,29 @@ function OneRestaurant(props) {
                     <button onClick={(ev) => {
                         ev.preventDefault();
                         props.delete(comment)
-                    }}>
+                    }} className="button">
                         Delete Comment
                     </button>
                     <UpdateComment 
-                    toggle={props.toggle} 
-                    modal={props.modal} 
-                    rest={comment}
-                    update={props.update}
-                    state={props.state}
-                    change={props.change}
-                    name={props.name}
-                    comment={props.comment}
-                    id={props.id} />
+            // This is the Update modal component
+                        toggle={props.toggle} 
+                        modal={props.modal} 
+                        rest={comment}
+                        update={props.update}
+                        state={props.state}
+                        change={props.change}
+                        name={props.name}
+                        comment={props.comment}
+                        id={props.id} 
+                        currentModal={props.currentModal}
+                    />
                 </div>
             ))}
         </div>
     }
     
     return (
+        // This is the display for the restaurant data
         <div>
             <h2>{props.rest.name}</h2>
 
@@ -53,14 +59,17 @@ function OneRestaurant(props) {
             <div>
                 <div>
                 <CommentForm 
+                // This is the Create a comment modal
                     toggle={props.toggle} 
                     modal={props.modal} 
                     create={props.create}
-                    rest={props.rest} />
+                    rest={props.rest}
+                    selectModal={props.selectModal}
+                    currentModal={props.currentModal} />
                 </div>
 
                 <div>
-                {result}
+                    {result}
                 </div>
 
             </div>

@@ -75,3 +75,11 @@ p {
   font-size: 15px;
 }
 
+.name {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+}
+.text {
+  width: 600px;
+}

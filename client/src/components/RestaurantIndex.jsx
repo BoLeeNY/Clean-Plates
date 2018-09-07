@@ -2,13 +2,14 @@ import React from 'react'
 
 
 function RestaurantIndex(props) {
+    // This searches through all restaurants to match user input
     let resta;
     if (props.input) {
-        
         resta = props.restaurants.filter(rest => {
            if (rest.name) {
                return rest.name.toLowerCase().includes(props.input.toLowerCase())
            }else{
+               // If there is no match, display "Not Found"
                return "Not found"
            }
         })
@@ -30,6 +31,7 @@ function RestaurantIndex(props) {
            
             <div className="container">
             {resta.map(restaurant => (
+                // This maps through and displays all restaurants
                 <div key={restaurant.id} className="Index"
                         onClick={(ev) => {
                         ev.preventDefault();
