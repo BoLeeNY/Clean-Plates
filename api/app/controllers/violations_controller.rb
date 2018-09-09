@@ -1,5 +1,5 @@
 class ViolationsController < ApplicationController
-
+    # Shows all Violations
     def index
         camis = params[:restaurant_id]
         if (camis)

@@ -16,12 +16,14 @@ function OneRestaurant(props) {
                     <h2>Comment:</h2>
                     <p>Name: {comment.name}</p>
                     <p>Comment: {comment.comment}</p>
+                    <div>
                     <button onClick={(ev) => {
                         ev.preventDefault();
                         props.delete(comment)
                     }} className="button">
                         Delete Comment
                     </button>
+                    </div>
                     <UpdateComment 
             // This is the Update modal component
                         toggle={props.toggle} 

@@ -1,17 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 
+# HTTParty fetches from the API and sets it to the response variable
 response = HTTParty.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json')
-
+# Empties Restaurant and Violation tables
 Restaurant.delete_all
 Violation.delete_all
-
+# Iterates through data and inserts into the Restaurant table
 response.each do |resp|
 
     Restaurant.create!({
@@ -24,7 +18,7 @@ response.each do |resp|
         cuisine: resp["cuisine_description"]
     }) 
 end
-
+# Iterates through data and inserts into the Response table
 response.each do |resp|
     Violation.create!({
         grade: resp["grade"],
@@ -33,6 +27,6 @@ response.each do |resp|
         restaurant_id: resp["camis"]
     })
 end
-    
+# Inserts dummy data into the Comments table
 Comment.create!({name: 'Blerf', comment: 'I love this place, but I am never going back now!', restaurant_id: 41216675})
 Comment.create!({name: 'Shuckle', comment: 'This is gross!', restaurant_id: 41216675})

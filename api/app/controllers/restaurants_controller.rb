@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-    
+    # Shows all Restaurants
     def index
         name = params[:name]
         if (name)
@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
         end
         render json: { restaurants: @restaurants }, include: [:violations, :comments]
     end
-
+    # Shows a single Restaurant
     def show
         id = params[:id]
         render json: { restaurants: Restaurant.where({camis: id})}, include: [:violations, :comments]

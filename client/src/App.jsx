@@ -28,6 +28,7 @@ class App extends Component {
       com_id: '',
       modal: false
     }
+    // Binds the methods
     this.fetchOne = this.fetchOne.bind(this);
     this.selectRestaurant = this.selectRestaurant.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -50,7 +51,7 @@ class App extends Component {
       modal: !(this.state.modal)
     })
   }
-// The Update component uses this to set state
+// The Update component uses this to set state, also sets Selected Modal to Update
   handleState(comment) {
     this.setState({
       name: comment.name,
@@ -90,7 +91,7 @@ class App extends Component {
       currentView: 'One Restaurant'
     })
   };
-
+// Sets Selected Modal to Create
   selectModal(modal) {
     this.setState({
       currentModal: "create",

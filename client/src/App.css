@@ -47,11 +47,14 @@ p {
   grid-template-columns: auto auto auto;
   align-self: auto;
   background-color: aliceblue;
+  border: 2px;
 }
 .comment {
   padding: 9px;
   text-align: center;
   font-family: 'brawler';
+  outline-color: black;
+  outline-width: 2px;
 }
 .place, .data {
   text-align: center;
