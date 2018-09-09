@@ -25,7 +25,6 @@ function RestaurantIndex(props) {
                     name="input" 
                     placeholder="Find a Restaurant"
                      />
-                <input className="submit" type="submit" value="search"/>
                 </form>
                 </div>
            
