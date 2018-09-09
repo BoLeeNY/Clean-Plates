@@ -14,8 +14,8 @@ function OneRestaurant(props) {
             {props.rest.comments.map(comment => (
                 <div key={comment.id} className="comment">
                     <h2>Comment:</h2>
-                    <p>Name: {comment.name}</p>
-                    <p>Comment: {comment.comment}</p>
+                    <p className="comm-name">{comment.name}</p>
+                    <p>{comment.comment}</p>
                     <div>
                     <button onClick={(ev) => {
                         ev.preventDefault();
@@ -45,20 +45,29 @@ function OneRestaurant(props) {
     return (
         // This is the display for the restaurant data
         <div>
-            <h2>{props.rest.name}</h2>
+            <div className="container">
+                <div className="name-place">
+                    <h2>{props.rest.name}</h2>
+                <div className="place">
+                    <p>Address: {props.rest.building} {props.rest.street}, {props.rest.borough}, {props.rest.zip}</p>
+                    <p>Cuisine: {props.rest.cuisine}</p>
+                </div>
+                </div>
 
-            <div className="place">
-                <p>Address: {props.rest.building} {props.rest.street}, {props.rest.borough}, {props.rest.zip}</p>
-                <p>Cuisine: {props.rest.cuisine}</p>
+                <div className="grade">
+                    <h2>Grade: {props.rest.violations[0].grade}</h2>
+                    <p>Inspection Date: {props.rest.violations[0].inspection_date}</p>
+                </div>
+
             </div>
 
-                <h2>Grade: {props.rest.violations[0].grade}</h2>
             <div className="data">
-                <p>Inspection Date: {props.rest.violations[0].inspection_date}</p>
-                <p>Violations: {props.rest.violations[0].description}</p>
+                <h2>Violations:</h2>
+                <p>{props.rest.violations[0].description}</p>
             </div>
 
             <div>
+                <br/>
                 <div>
                 <CommentForm 
                 // This is the Create a comment modal
@@ -69,7 +78,7 @@ function OneRestaurant(props) {
                     selectModal={props.selectModal}
                     currentModal={props.currentModal} />
                 </div>
-
+                <br/>
                 <div>
                     {result}
                 </div>
