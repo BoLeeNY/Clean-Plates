@@ -36,12 +36,27 @@ Gem Rack-cors, Gem Httparty, Bulma, api found [here](https://data.cityofnewyork.
 ```
 This is the code from the Update Comment modal. It conditionally renders on a button click. 
 
+```
+  updateComment(comment) {
+    comment = {name: this.state.name, comment: this.state.comment, restaurant_id: this.state.restaurant_id, id: this.state.com_id}
+    updateComment(comment)
+      .then(data => fetchRestaurants())
+      .then(data => {
+        this.setState({
+          restaurants: data.restaurants,
+          currentView: 'All Restaurants'
+        });
+      })
+  };
+```
+This code is my update method for a comment. It grabs specific pieces of state to pass to the api.
+
 ## MVP
-Full CRUD
-Search Bar
+1. Full CRUD
+2. Search Bar
 
 ## Post-MVP
-Auth
-Extra styling
+1. Auth
+2. Extra styling
 
 
