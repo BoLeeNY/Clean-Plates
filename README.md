@@ -10,11 +10,31 @@ As a user, i want to be able to edit a restaurant.
 As a user, I want to be able to go back to the homepage from any page.
 
 ## ERD
-<img width="636" alt="screen shot 2018-09-04 at 9 07 07 am" src="https://user-images.githubusercontent.com/39596048/45035495-21613800-b028-11e8-9f7e-6c0464609322.png">
+<img width="642" alt="screen shot 2018-09-10 at 9 06 13 am" src="https://user-images.githubusercontent.com/39596048/45299219-db4d1e00-b4d8-11e8-8338-939685b0676f.png">
 
 ## Wireframe
 ![img_3138](https://user-images.githubusercontent.com/39596048/45035546-3b9b1600-b028-11e8-9a6a-88ce89192431.JPG)
 ![img_3139](https://user-images.githubusercontent.com/39596048/45035535-38a02580-b028-11e8-9d17-228a86df734c.JPG)
+
+## Resources
+Gem Rack-cors, Gem Httparty, Bulma, api found [here](https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j).
+
+## Code Snippet
+```
+<div className={(props.modal&&props.currentModal==="update") ? "modal is-active" : "modal"}>
+                <div className="modal-background"></div>
+                <div className="modal-content">
+                    <form onSubmit={props.update}>
+                    <div>
+                        <input type="text"
+                            className="name"
+                            name="name"
+                            value={props.name}
+                            placeholder="Name"
+                            onChange={props.change} />
+                    </div>
+```
+This is the code from the Update Comment modal. It conditionally renders on a button click. 
 
 ## MVP
 Full CRUD
@@ -24,7 +44,4 @@ Search Bar
 Auth
 Extra styling
 
-## Timeline
-9/4 - 9/5 : Set up back end
-9/6 - 9/7 : Set up front end and MVP
-9/8 - 9/9 : Styling / Post-MVP
+
