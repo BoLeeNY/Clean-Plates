@@ -4,6 +4,11 @@
   margin: 0;
 }
 
+#spinner {
+  position: fixed;
+  top: 40%;
+  left: 30%;
+}
 
 
 h1 {

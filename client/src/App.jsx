@@ -7,7 +7,6 @@ import './App.css';
 import {
   fetchRestaurants,
   fetchOneRestaurant,
-  fetchComments,
   saveNewComment,
   updateComment,
   deleteComment

@@ -18,7 +18,9 @@ function RestaurantIndex(props) {
     }
     return (
         <div>
-            
+            <div id="spinner">
+                <img id="img-spinner" src="https://cdn-images-1.medium.com/max/1600/1*9EBHIOzhE1XfMYoKz1JcsQ.gif" alt="Loading"/>
+            </div>
                 <div className="search">
                 <form  action="search">
                 <input onChange={props.change} type="text" className="searchbar"
