@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = process.env.REACT_APP_API_URL
 
 export function fetchRestaurants() {
     return fetch(`${BASE_URL}/restaurants`)
