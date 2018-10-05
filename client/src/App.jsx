@@ -100,11 +100,12 @@ class App extends Component {
 // This creates a new Comment
   createComment(comment) {
     saveNewComment(comment)
-    .then(data => fetchOneRestaurant(comment.restaurant_id))
+    .then(data => fetchRestaurants())
       .then(data => {
         this.setState({
-          currentView: 'One Restaurant',
-          selectedRest: comment.rest,
+          restaurants: data.restaurants,
+          currentView: 'All Restaurants',
+          modal: !(this.state.modal)
         });
       })
   };
